@@ -190,13 +190,15 @@ export function Process() {
         {text.title}
       </h2>
       <p className="mt-6 max-w-2xl text-muted-foreground">{text.text}</p>
-      <ol className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <ol className="mt-12 grid items-stretch gap-4 md:grid-cols-2 xl:grid-cols-4">
         {text.steps.map((step, index) => (
-          <li key={step.title} className="rounded-3xl border p-6">
-            <p className="font-serif text-3xl text-primary">
+          <li key={step.title} className="flex h-full min-w-0 flex-col rounded-3xl border p-6">
+            <p className="font-serif text-2xl text-primary">
               {String(index + 1).padStart(2, "0")}
             </p>
-            <h3 className="mt-4 font-serif text-3xl">{step.title}</h3>
+            <h3 className="mt-4 font-serif text-xl leading-tight tracking-tight">
+              {step.title}
+            </h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step.text}</p>
           </li>
         ))}
