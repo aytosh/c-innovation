@@ -1,0 +1,19 @@
+[Unit]
+Description=CInnovation temporary site
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/var/www/cinnovation
+Environment=NODE_ENV=production
+Environment=PATH=/opt/node-v22/bin:/usr/bin:/bin
+Environment=PORT=3040
+ExecStart=/opt/node-v22/bin/node /var/www/cinnovation/node_modules/next/dist/bin/next start -p 3040
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
